@@ -2,8 +2,9 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#1C1C1C"
-    android:padding="16dp">
+    android:padding="40dp">
 
     <!-- Game Header -->
     <LinearLayout
@@ -15,9 +16,10 @@
 
         <ImageView
             android:id="@+id/image_logo"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:src="@drawable/axforassets"
+            android:layout_marginBottom="5dp"
             />
 
         <TextView
@@ -26,17 +28,18 @@
             android:layout_height="wrap_content"
             android:text="Game"
             android:textColor="#FFFFFF"
-            android:textSize="20sp"
+            android:textSize="25sp"
             android:textStyle="bold"
-            android:layout_marginStart="35dp" />
+            android:layout_marginStart="110dp"
+            android:layout_marginBottom="5dp"/>
     </LinearLayout>
 
     <View
-        android:layout_below="@id/game_header"
+        android:layout_above="@id/game_image"
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="#FFFFFF"
-        android:layout_marginTop="8dp" />
+        android:background="#393D58"
+        />
 
     <!-- Image -->
     <ImageView
@@ -47,6 +50,7 @@
         android:src="@drawable/sample_image"
         android:layout_below="@id/game_header"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
         android:layout_marginBottom="16dp" />
 
     <!-- Sakura Vandal Header -->
@@ -56,11 +60,17 @@
         android:layout_height="wrap_content"
         android:text="Sakura Vandal"
         android:textColor="#FFFFFF"
-        android:textSize="20sp"
+        android:textSize="25sp"
         android:textStyle="bold"
         android:layout_below="@id/game_image"
         android:layout_marginBottom="8dp" />
 
+    <View
+        android:layout_above="@id/sakura_description"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#393D58"
+        />
     <!-- Description -->
     <TextView
         android:id="@+id/sakura_description"
@@ -69,35 +79,58 @@
         android:text="The Vandal Sakura Skin is a visually stunning weapon skin that transforms the Vandal rifle into a work of art, capturing the essence of Japanese cherry blossoms. It's a perfect choice for players who want to add a touch of elegance and beauty to their gameplay."
         android:textColor="#FFFFFF"
         android:layout_below="@id/sakura_header"
-        android:layout_marginBottom="16dp" />
+        android:justificationMode="inter_word"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="30dp" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Email"
-        android:layout_above="@+id/email_input"
-        android:textColor="@color/white"
+    <View
+        android:layout_above="@id/email_text"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#393D58"
         />
     <!-- Email Input -->
+    <TextView
+        android:id="@+id/email_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/sakura_description"
+        android:text="Email"
+        android:textSize="16sp"
+        android:textColor="@color/white"
+        android:layout_marginTop="10dp"
+       />
+
     <EditText
         android:id="@+id/email_input"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/sakura_description"
-        android:layout_marginTop="16dp"
+        android:layout_below="@id/email_text"
+        android:layout_marginTop="5dp"
         android:padding="8dp"
         android:hint="Enter email here..."
+        android:layout_marginBottom="10dp"
         android:background="@drawable/rounded_border"/>
+
+    <TextView
+        android:id="@+id/pay_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Payment Method"
+        android:textSize="16sp"
+        android:textColor="#FFFFFF"
+        android:layout_below="@id/email_input"
+        />
 
     <!-- Payment Method Spinner -->
     <Spinner
         android:id="@+id/payment_method_spinner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/email_input"
+        android:layout_below="@id/pay_text"
         android:layout_marginBottom="16dp"
         android:layout_marginTop="5dp"
-        android:padding="8dp"
+        android:padding="20dp"
         android:background="@drawable/rounded_border" />
 
     <!-- Buy Now Button -->
@@ -106,9 +139,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/payment_method_spinner"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="5dp"
         android:text="BUY NOW"
-        android:background="@drawable/rounded_button"
-        android:textColor="@android:color/white" />
+        app:background="@drawable/rounded_button"
+        android:backgroundTint="#FFDB1F"
+        android:textStyle="bold"
+        android:textColor="@android:color/black" />
 
 </RelativeLayout>
