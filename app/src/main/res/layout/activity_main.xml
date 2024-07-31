@@ -87,8 +87,13 @@
         android:layout_above="@id/email_text"
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="#393D58"
-        />
+        android:background="#393D58"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Email"
+        android:layout_above="@+id/email_input"
+        android:textColor="@color/white"/>
     <!-- Email Input -->
     <TextView
         android:id="@+id/email_text"
