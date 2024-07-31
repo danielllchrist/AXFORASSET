@@ -10,4 +10,7 @@
     <color name="background_color">#FF10191C</color>
     <color name="lighter_background_color">#FF33374F</color>
     <color name="ax_yellow">#FFFFDB1F</color>
+    <color name="colorPrimary">#6200EE</color>
+    <color name="colorPrimaryDark">#3700B3</color>
+    <color name="colorButton">#FFDB1F</color>
 </resources>
