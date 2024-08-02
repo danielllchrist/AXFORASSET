@@ -1,12 +1,16 @@
 package com.uxlab.axforasset;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class GameAssetDetail extends AppCompatActivity {
@@ -33,11 +37,27 @@ public class GameAssetDetail extends AppCompatActivity {
             String paymentMethod = paymentMethodSpinner.getSelectedItem().toString();
 
             if (email.isEmpty()) {
-                Toast.makeText(GameAssetDetail.this, "Please enter your email", Toast.LENGTH_SHORT).show();
-            } else {
-                Toast.makeText(GameAssetDetail.this, "Purchase successful", Toast.LENGTH_SHORT).show();
-                // Handle purchase logic here
+                showEmailDialog("Email must be filled", "Try Again");
+        } else {
+                showEmailDialog("Confirmation email has been sent to your email!", "Ok");
             }
         });
+    }
+    private void showEmailDialog(String message, String buttonText) {
+        LayoutInflater inflater = LayoutInflater.from(this);
+        View dialogView = inflater.inflate(R.layout.dialog_email, null);
+
+        TextView dialogMessage = dialogView.findViewById(R.id.dialog_message);
+        dialogMessage.setText(message);
+
+        Button dialogButton = dialogView.findViewById(R.id.dialog_button);
+        dialogButton.setText(buttonText);
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this, R.style.CustomAlertDialog);
+        builder.setView(dialogView);
+
+        final AlertDialog dialog = builder.create();
+        dialogButton.setOnClickListener(v -> dialog.dismiss());
+        dialog.show();
     }
 }
