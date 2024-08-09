@@ -1,11 +1,15 @@
 package com.uxlab.axforasset;
 
-public class Asset {
-    String name, description, image;
+import java.io.Serializable;
 
-    public Asset(String name, String description, String image) {
+public class Asset implements Serializable {
+    private String name, shortDesc, longDesc;
+    int image;
+
+    public Asset(String name, String shortDesc, String longDesc, int image) {
         this.name = name;
-        this.description = description;
+        this.shortDesc = shortDesc;
+        this.longDesc = longDesc;
         this.image = image;
     }
 
@@ -13,11 +17,15 @@ public class Asset {
         return name;
     }
 
-    public String getDescription() {
-        return description;
+    public String getShortDesc() {
+        return shortDesc;
     }
 
-    public String getImage() {
+    public String getLongDesc() {
+        return longDesc;
+    }
+
+    public int getImage() {
         return image;
     }
 }
