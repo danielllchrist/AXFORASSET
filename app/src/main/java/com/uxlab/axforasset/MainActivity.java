@@ -13,7 +13,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        User user = new User("", "");
+        User user = new User("Dalkun", "kntl@gmail.com");
 
         ArrayList<Asset> assets = new ArrayList<>();
 
@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
                 R.drawable.judge
         ));
 
-        Intent intent = new Intent(MainActivity.this, Items.class);
+        Intent intent = new Intent(MainActivity.this, Home.class);
         intent.putExtra("user", user);
         intent.putExtra("assets", assets);
         startActivity(intent);
