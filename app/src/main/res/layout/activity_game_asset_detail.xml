@@ -31,7 +31,8 @@
             android:textSize="25sp"
             android:textStyle="bold"
             android:layout_marginStart="100dp"
-            android:layout_marginBottom="5dp"/>
+            android:layout_marginBottom="5dp"
+            android:fontFamily="@font/montserrat_bold"/>
     </LinearLayout>
 
     <View
@@ -51,7 +52,8 @@
         android:layout_below="@id/game_header"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
-        android:layout_marginBottom="16dp" />
+        android:layout_marginBottom="16dp"
+        app:background="@drawable/rounded_image"/>
 
     <!-- Sakura Vandal Header -->
     <TextView
@@ -63,7 +65,8 @@
         android:textSize="25sp"
         android:textStyle="bold"
         android:layout_below="@id/game_image"
-        android:layout_marginBottom="8dp" />
+        android:layout_marginBottom="8dp"
+        android:fontFamily="@font/montserrat_bold"/>
 
     <View
         android:layout_above="@id/sakura_description"
@@ -81,7 +84,8 @@
         android:layout_below="@id/sakura_header"
         android:justificationMode="inter_word"
         android:layout_marginTop="8dp"
-        android:layout_marginBottom="30dp" />
+        android:layout_marginBottom="30dp"
+        android:fontFamily="@font/montserrat_regular"/>
 
     <View
         android:layout_above="@id/email_text"
@@ -104,6 +108,7 @@
         android:textSize="16sp"
         android:textColor="@color/white"
         android:layout_marginTop="10dp"
+        android:fontFamily="@font/montserrat_regular"
         />
 
     <EditText
@@ -115,6 +120,7 @@
         android:padding="8dp"
         android:hint="Enter email here..."
         android:layout_marginBottom="10dp"
+        android:fontFamily="@font/montserrat_regular"
         android:background="@drawable/rounded_border"/>
 
     <TextView
@@ -125,6 +131,7 @@
         android:textSize="16sp"
         android:textColor="#FFFFFF"
         android:layout_below="@id/email_input"
+        android:fontFamily="@font/montserrat_regular"
         />
 
     <!-- Payment Method Spinner -->
@@ -136,7 +143,8 @@
         android:layout_marginBottom="16dp"
         android:layout_marginTop="5dp"
         android:padding="10dp"
-        android:background="@drawable/rounded_border" />
+        android:background="@drawable/rounded_border"
+        android:fontFamily="@font/montserrat_regular"/>
 
     <!-- Buy Now Button -->
     <Button
@@ -144,12 +152,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/payment_method_spinner"
-
         android:text="BUY NOW"
         app:background="@drawable/rounded_button"
         android:backgroundTint="#FFDB1F"
         android:textStyle="bold"
-        android:textColor="@android:color/black" />
+        android:textColor="@android:color/black"
+        android:fontFamily="@font/montserrat_bold"/>
 
 </RelativeLayout>
 

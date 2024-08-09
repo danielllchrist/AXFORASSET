@@ -5,13 +5,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class GameAssetDetail extends AppCompatActivity {
     private EditText emailInput;
@@ -32,17 +33,32 @@ public class GameAssetDetail extends AppCompatActivity {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         paymentMethodSpinner.setAdapter(adapter);
 
+        // Add mouse down interaction to the button
+        buyNowButton.setOnTouchListener((v, event) -> {
+            switch (event.getAction()) {
+                case MotionEvent.ACTION_DOWN:
+                    v.setAlpha(0.6f); // Dim the button when pressed
+                    break;
+                case MotionEvent.ACTION_UP:
+                case MotionEvent.ACTION_CANCEL:
+                    v.setAlpha(1.0f); // Restore alpha when released
+                    break;
+            }
+            return false; // Return false to allow click event to be triggered
+        });
+
         buyNowButton.setOnClickListener(v -> {
             String email = emailInput.getText().toString();
             String paymentMethod = paymentMethodSpinner.getSelectedItem().toString();
 
             if (email.isEmpty()) {
                 showEmailDialog("Email must be filled", "Try Again");
-        } else {
+            } else {
                 showEmailDialog("Confirmation email has been sent to your email!", "Ok");
             }
         });
     }
+
     private void showEmailDialog(String message, String buttonText) {
         LayoutInflater inflater = LayoutInflater.from(this);
         View dialogView = inflater.inflate(R.layout.dialog_email, null);
