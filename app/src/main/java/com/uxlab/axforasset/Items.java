@@ -4,21 +4,26 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
 public class Items extends AppCompatActivity {
 
+    ArrayList<Asset> assets;
+    User user;
     private LinearLayout dropdownMenu;
     private ImageView barsIcon;
-
-    private ArrayList<Asset> assets;
+    TextView home_nav;
+    TextView profile_nav;
+    TextView logout_nav;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +31,41 @@ public class Items extends AppCompatActivity {
         setContentView(R.layout.activity_items);
 
         assets = (ArrayList<Asset>) getIntent().getSerializableExtra("assets", ArrayList.class);
+        user = getIntent().getParcelableExtra("user", User.class);
+
+        home_nav = findViewById(R.id.home_nav);
+        profile_nav = findViewById(R.id.profile_nav);
+        logout_nav = findViewById(R.id.logout_nav);
+
+        home_nav.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Items.this, Home.class);
+                intent.putExtra("user", user);
+                intent.putExtra("assets", assets);
+                startActivity(intent);
+            }
+        });
+
+        profile_nav.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Items.this, Profile.class);
+                intent.putExtra("user", user);
+                intent.putExtra("assets", assets);
+                startActivity(intent);
+            }
+        });
+
+        logout_nav.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Items.this, Login.class);
+                intent.putExtra("user", user);
+                intent.putExtra("assets", assets);
+                startActivity(intent);
+            }
+        });
 
         RecyclerView recyclerView = findViewById(R.id.recycler_view);
 

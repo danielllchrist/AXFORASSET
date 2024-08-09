@@ -208,10 +208,11 @@
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:layout_marginTop="0dp"
-            android:background="@drawable/rounded_navigation_bar"
+            android:background="@drawable/round_navigation_bar_2"
             android:layout_below="@+id/top_bar">
 
             <TextView
+                android:id="@+id/home_nav"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="@color/ax_yellow"
@@ -222,6 +223,7 @@
                 android:text="Home"/>
 
             <TextView
+                android:id="@+id/items_nav"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="@color/ax_yellow"
@@ -232,6 +234,18 @@
                 android:text="Items"/>
 
             <TextView
+                android:id="@+id/profile_nav"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/ax_yellow"
+                android:textAlignment="center"
+                android:fontFamily="@font/montserrat_bold"
+                android:textSize="16dp"
+                android:paddingVertical="15dp"
+                android:text="Profile"/>
+
+            <TextView
+                android:id="@+id/logout_nav"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="@color/ax_yellow"

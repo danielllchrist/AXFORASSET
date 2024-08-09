@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.media.Image;
 import android.os.Bundle;
@@ -24,8 +25,12 @@ import com.google.android.material.shape.CornerFamily;
 import com.google.android.material.shape.ShapeAppearanceModel;
 import com.google.android.material.tabs.TabLayout;
 
+import java.util.ArrayList;
+
 public class Home extends AppCompatActivity {
 
+    ArrayList<Asset> assets;
+    User user;
     ViewFlipper carousel;
     GestureDetector gestureDetector;
     LinearLayout dropdownMenu;
@@ -33,10 +38,16 @@ public class Home extends AppCompatActivity {
     TabLayout tabLayout;
     ViewPager viewPager;
     TextView welcomeText;
+    TextView items_nav;
+    TextView profile_nav;
+    TextView logout_nav;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
+        assets = (ArrayList<Asset>) getIntent().getSerializableExtra("assets", ArrayList.class);
+        user = getIntent().getParcelableExtra("user", User.class);
 
         welcomeText = findViewById(R.id.welcome_text);
         carousel = findViewById(R.id.carousel);
@@ -44,9 +55,42 @@ public class Home extends AppCompatActivity {
         barsIcon = findViewById(R.id.bars_icon);
         tabLayout = findViewById(R.id.tabLayout);
         viewPager = findViewById(R.id.viewPager);
+        items_nav = findViewById(R.id.items_nav);
+        profile_nav = findViewById(R.id.profile_nav);
+        logout_nav = findViewById(R.id.logout_nav);
 
-        String username = "Joxx";
-        welcomeText.setText("Welcome, " + username + " !" );
+        items_nav.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Home.this, Items.class);
+                intent.putExtra("user", user);
+                intent.putExtra("assets", assets);
+                startActivity(intent);
+            }
+        });
+
+        profile_nav.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Home.this, Profile.class);
+                intent.putExtra("user", user);
+                intent.putExtra("assets", assets);
+                startActivity(intent);
+            }
+        });
+
+        logout_nav.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Home.this, Login.class);
+                intent.putExtra("user", user);
+                intent.putExtra("assets", assets);
+                startActivity(intent);
+            }
+        });
+
+        String username = user.getName();
+        welcomeText.setText("Welcome, " + username + "!" );
 
         int[] images = {R.drawable.c1, R.drawable.c2, R.drawable.c3};
 
@@ -81,9 +125,7 @@ public class Home extends AppCompatActivity {
 
         dropdownMenu.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                // To prevent dropdown menu click from closing it
-            }
+            public void onClick(View v) { }
         });
 
         toggleDropdownMenu();
@@ -98,24 +140,20 @@ public class Home extends AppCompatActivity {
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
-                // Gaya tab aktif
                 TextView tabTextView = ((TextView) ((ViewGroup) tab.view).getChildAt(1));
                 tabTextView.setTextAppearance(Home.this, R.style.TabActiveStyle);
-                tab.view.setBackgroundResource(R.drawable.tab_active_background); // Set custom background for active tab
+                tab.view.setBackgroundResource(R.drawable.tab_active_background);
             }
 
             @Override
             public void onTabUnselected(TabLayout.Tab tab) {
-                // Gaya tab tidak aktif
                 TextView tabTextView = ((TextView) ((ViewGroup) tab.view).getChildAt(1));
                 tabTextView.setTextAppearance(Home.this, R.style.TabDefaultStyle);
-                tab.view.setBackgroundColor(Color.TRANSPARENT); // Reset to transparent for non-active tab
+                tab.view.setBackgroundColor(Color.TRANSPARENT);
             }
 
             @Override
-            public void onTabReselected(TabLayout.Tab tab) {
-                // No change needed for reselection
-            }
+            public void onTabReselected(TabLayout.Tab tab) { }
         });
 
         tabLayout.selectTab(tabLayout.getTabAt(1));
@@ -174,9 +212,7 @@ public class Home extends AppCompatActivity {
 
         slide_up.setAnimationListener(new Animation.AnimationListener() {
             @Override
-            public void onAnimationStart(Animation animation) {
-                // No action needed
-            }
+            public void onAnimationStart(Animation animation) { }
 
             @Override
             public void onAnimationEnd(Animation animation) {
@@ -184,9 +220,7 @@ public class Home extends AppCompatActivity {
             }
 
             @Override
-            public void onAnimationRepeat(Animation animation) {
-                // No action needed
-            }
+            public void onAnimationRepeat(Animation animation) { }
         });
 
         slide_down.setAnimationListener(new Animation.AnimationListener() {
@@ -196,14 +230,10 @@ public class Home extends AppCompatActivity {
             }
 
             @Override
-            public void onAnimationEnd(Animation animation) {
-                // No action needed
-            }
+            public void onAnimationEnd(Animation animation) { }
 
             @Override
-            public void onAnimationRepeat(Animation animation) {
-                // No action needed
-            }
+            public void onAnimationRepeat(Animation animation) { }
         });
 
         if (dropdownMenu.getVisibility() == View.VISIBLE) {
