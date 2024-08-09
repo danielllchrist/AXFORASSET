@@ -1,115 +1,153 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background_color">
-
-    <LinearLayout
-        android:layout_width="320dp"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="center_vertical"
-        android:layout_centerInParent="true">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Welcome, Jox"
-            android:textSize="35dp"
-            android:textColor="@color/white"
-            android:fontFamily="@font/montserrat_bold"
-            android:layout_marginBottom="20dp"/>
-
-        <ViewFlipper
-            android:layout_width="match_parent"
-            android:layout_height="180dp"
-            android:id="@+id/carousel"/>
-
-    </LinearLayout>
+    android:fillViewport="true">
 
     <RelativeLayout
-        android:visibility="invisible"
-        android:layout_alignParentTop="true"
+        android:id="@+id/relative_layout_root"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:background="@color/background_color"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
 
         <LinearLayout
-            android:id="@+id/dropdown_menu"
-            android:layout_width="match_parent"
+            android:id="@+id/content"
+            android:layout_width="320dp"
             android:layout_height="wrap_content"
             android:orientation="vertical"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="140dp">
+
+            <TextView
+                android:id="@+id/welcome_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Welcome, Jox"
+                android:textSize="35dp"
+                android:textColor="@color/white"
+                android:fontFamily="@font/montserrat_bold"
+                android:layout_marginBottom="20dp"/>
+
+            <ViewFlipper
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:id="@+id/carousel"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_centerHorizontal="true"
+            android:layout_width="320dp"
+            android:layout_height="240dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="40dp"
             android:padding="20dp"
-            android:layout_marginBottom="10dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginTop="0dp"
-            android:background="@drawable/rounded_navigation_bar"
-            android:layout_below="@+id/top_bar">
+            android:orientation="vertical"
+            android:background="@drawable/rounded_darker"
+            android:layout_alignParentBottom="true">
 
-            <TextView
+            <com.google.android.material.tabs.TabLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/ax_yellow"
-                android:textAlignment="center"
-                android:fontFamily="@font/montserrat_bold"
-                android:textSize="16dp"
-                android:paddingVertical="15dp"
-                android:text="Home"/>
+                android:layout_height="35dp"
+                android:id="@+id/tabLayout"
+                android:background="@drawable/rounded_navigation_bar"
+                app:tabBackground="@drawable/tab_background"
+                style="@style/CustomTabLayoutStyle">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/ax_yellow"
-                android:textAlignment="center"
-                android:fontFamily="@font/montserrat_bold"
-                android:textSize="16dp"
-                android:paddingVertical="15dp"
-                android:text="Items"/>
+            </com.google.android.material.tabs.TabLayout>
 
-            <TextView
+            <androidx.viewpager.widget.ViewPager
+                android:layout_marginTop="15dp"
+                android:id="@+id/viewPager"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/ax_yellow"
-                android:textAlignment="center"
-                android:fontFamily="@font/montserrat_bold"
-                android:textSize="16dp"
-                android:paddingVertical="15dp"
-                android:text="Log out"/>
+                android:layout_height="wrap_content"/>
 
         </LinearLayout>
 
         <RelativeLayout
-            android:id="@+id/top_bar"
+            android:layout_alignParentTop="true"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="10dp"
-            android:layout_marginBottom="10dp"
-            android:background="@drawable/rounded_navigation_bar"
-            android:gravity="center_horizontal"
-            android:orientation="horizontal"
-            android:paddingHorizontal="25dp"
-            android:paddingVertical="20dp">
+            android:orientation="vertical">
 
-            <ImageView
-                android:layout_width="160dp"
-                android:layout_height="40dp"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentLeft="true"
-                android:src="@drawable/logo" />
+            <LinearLayout
+                android:id="@+id/dropdown_menu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="0dp"
+                android:background="@drawable/rounded_navigation_bar"
+                android:layout_below="@+id/top_bar">
 
-            <ImageView
-                android:id="@+id/bars_icon"
-                android:layout_width="30dp"
-                android:layout_height="40dp"
-                android:layout_alignParentRight="true"
-                android:src="@drawable/bars_icon" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/ax_yellow"
+                    android:textAlignment="center"
+                    android:fontFamily="@font/montserrat_bold"
+                    android:textSize="16dp"
+                    android:paddingVertical="15dp"
+                    android:text="Items"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/ax_yellow"
+                    android:textAlignment="center"
+                    android:fontFamily="@font/montserrat_bold"
+                    android:textSize="16dp"
+                    android:paddingVertical="15dp"
+                    android:text="Profile"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/ax_yellow"
+                    android:textAlignment="center"
+                    android:fontFamily="@font/montserrat_bold"
+                    android:textSize="16dp"
+                    android:paddingVertical="15dp"
+                    android:text="Log out"/>
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:id="@+id/top_bar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/rounded_navigation_bar"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal"
+                android:paddingHorizontal="25dp"
+                android:paddingVertical="20dp">
+
+                <ImageView
+                    android:layout_width="160dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
+                    android:src="@drawable/logo" />
+
+                <ImageView
+                    android:id="@+id/bars_icon"
+                    android:layout_width="30dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentRight="true"
+                    android:src="@drawable/bars_icon" />
+
+            </RelativeLayout>
 
         </RelativeLayout>
 
     </RelativeLayout>
-
-</RelativeLayout>
+</ScrollView>

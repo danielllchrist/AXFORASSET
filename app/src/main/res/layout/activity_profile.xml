@@ -16,6 +16,7 @@
         android:layout_alignParentBottom="true">
 
         <TextView
+            android:id="@+id/welcome_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Hi, Jox!"
@@ -70,6 +71,7 @@
                             android:fontFamily="@font/montserrat_bold"
                             android:textSize="20dp"/>
                         <TextView
+                            android:id="@+id/email"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="jox@gmail.com"

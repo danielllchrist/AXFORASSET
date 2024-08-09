@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:textColor="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:justificationMode="inter_word"
+        android:text="Please refrain from redistributing, reselling, or sharing any of the assets acquired through our Game Asset Shop. All assets are intended for your individual use only and must not be transferred or disseminated to other parties. Ensure that you utilize only the payment methods provided by our platform for all transactions. Be aware that all payments made through our service are non-refundable and final once processed. It is imperative that you maintain the confidentiality and security of your account details to prevent unauthorized access. Any breach of our policies, including but not limited to misuse of assets or failure to adhere to payment procedures, may result in the suspension or termination of your account. We appreciate your compliance with these conditions to help maintain a secure and equitable environment for all users." />
+
+</ScrollView>

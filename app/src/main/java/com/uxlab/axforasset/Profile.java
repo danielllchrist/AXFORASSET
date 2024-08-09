@@ -6,12 +6,16 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 public class Profile extends AppCompatActivity {
 
     private LinearLayout dropdownMenu;
     private ImageView barsIcon;
+    private TextView welcomeText;
+    private TextView email;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +24,12 @@ public class Profile extends AppCompatActivity {
 
         dropdownMenu = findViewById(R.id.dropdown_menu);
         barsIcon = findViewById(R.id.bars_icon);
+        welcomeText = findViewById(R.id.welcome_text);
+        email = findViewById(R.id.email);
+
+        String username = "Joxx";
+        welcomeText.setText("Hi, " + username + "!");
+        email.setText(username + "@gmail.com");
 
         barsIcon.setOnClickListener(new View.OnClickListener() {
             @Override
