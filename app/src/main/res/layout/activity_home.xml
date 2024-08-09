@@ -54,9 +54,7 @@
                 android:id="@+id/tabLayout"
                 android:background="@drawable/rounded_navigation_bar"
                 app:tabBackground="@drawable/tab_background"
-                style="@style/CustomTabLayoutStyle">
-
-            </com.google.android.material.tabs.TabLayout>
+                style="@style/CustomTabLayoutStyle"/>
 
             <androidx.viewpager.widget.ViewPager
                 android:layout_marginTop="15dp"
