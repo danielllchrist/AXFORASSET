@@ -14,7 +14,15 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 public class GameAssetDetail extends AppCompatActivity {
+
+    private ArrayList<Asset> assets;
+    private User user;
+    private ImageView game_image;
+    private TextView item_header, item_description;
+
     private EditText emailInput;
     private Spinner paymentMethodSpinner;
 
@@ -22,6 +30,19 @@ public class GameAssetDetail extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_asset_detail);
+
+        assets = (ArrayList<Asset>) getIntent().getSerializableExtra("assets", ArrayList.class);
+        user = getIntent().getParcelableExtra("user", User.class);
+
+        game_image = findViewById(R.id.game_image);
+        item_header = findViewById(R.id.item_header);
+        item_description = findViewById(R.id.item_description);
+
+        Bundle bundle = getIntent().getExtras();
+
+        game_image.setImageResource(bundle.getInt("Image"));
+        item_header.setText(bundle.getString("Name"));
+        item_description.setText(bundle.getString("LongDesc"));
 
         emailInput = findViewById(R.id.email_input);
         paymentMethodSpinner = findViewById(R.id.payment_method_spinner);

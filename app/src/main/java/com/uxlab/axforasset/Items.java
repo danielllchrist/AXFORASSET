@@ -17,13 +17,13 @@ import java.util.ArrayList;
 
 public class Items extends AppCompatActivity {
 
-    ArrayList<Asset> assets;
-    User user;
+    private ArrayList<Asset> assets;
+    private User user;
     private LinearLayout dropdownMenu;
     private ImageView barsIcon;
-    TextView home_nav;
-    TextView profile_nav;
-    TextView logout_nav;
+    private TextView home_nav;
+    private TextView profile_nav;
+    private TextView logout_nav;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -107,7 +107,7 @@ public class Items extends AppCompatActivity {
         toggleDropdownMenu();
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setAdapter(new MyAdapter(getApplicationContext(),assets));
+        recyclerView.setAdapter(new MyAdapter(getApplicationContext(),assets, user));
         recyclerView.setNestedScrollingEnabled(false);
     }
 
