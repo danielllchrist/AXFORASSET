@@ -57,7 +57,7 @@
 
     <!-- Sakura Vandal Header -->
     <TextView
-        android:id="@+id/sakura_header"
+        android:id="@+id/item_header"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Sakura Vandal"
@@ -69,19 +69,19 @@
         android:fontFamily="@font/montserrat_bold"/>
 
     <View
-        android:layout_above="@id/sakura_description"
+        android:layout_above="@id/item_description"
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="#393D58"
         />
     <!-- Description -->
     <TextView
-        android:id="@+id/sakura_description"
+        android:id="@+id/item_description"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="The Vandal Sakura Skin is a visually stunning weapon skin that transforms the Vandal rifle into a work of art, capturing the essence of Japanese cherry blossoms. It's a perfect choice for players who want to add a touch of elegance and beauty to their gameplay."
         android:textColor="#FFFFFF"
-        android:layout_below="@id/sakura_header"
+        android:layout_below="@id/item_header"
         android:justificationMode="inter_word"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="30dp"
@@ -103,7 +103,7 @@
         android:id="@+id/email_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/sakura_description"
+        android:layout_below="@+id/item_description"
         android:text="Email"
         android:textSize="16sp"
         android:textColor="@color/white"

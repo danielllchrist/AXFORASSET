@@ -8,14 +8,16 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
+    private User user = new User("Dalkun", "kntl@gmail.com");
+
+    private ArrayList<Asset> assets = new ArrayList<>();
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        User user = new User("Dalkun", "kntl@gmail.com");
-
-        ArrayList<Asset> assets = new ArrayList<>();
 
         assets.add(new Asset(
                 "Knife",

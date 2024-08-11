@@ -29,18 +29,18 @@ import java.util.ArrayList;
 
 public class Home extends AppCompatActivity {
 
-    ArrayList<Asset> assets;
-    User user;
-    ViewFlipper carousel;
-    GestureDetector gestureDetector;
-    LinearLayout dropdownMenu;
-    ImageView barsIcon;
-    TabLayout tabLayout;
-    ViewPager viewPager;
-    TextView welcomeText;
-    TextView items_nav;
-    TextView profile_nav;
-    TextView logout_nav;
+    private ArrayList<Asset> assets;
+    private User user;
+    private ViewFlipper carousel;
+    private GestureDetector gestureDetector;
+    private LinearLayout dropdownMenu;
+    private ImageView barsIcon;
+    private TabLayout tabLayout;
+    private ViewPager viewPager;
+    private TextView welcomeText;
+    private TextView items_nav;
+    private TextView profile_nav;
+    private TextView logout_nav;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -172,7 +172,7 @@ public class Home extends AppCompatActivity {
 
         carousel.addView(iv);
         carousel.setAutoStart(true);
-        carousel.setFlipInterval(4000);
+        carousel.setFlipInterval(2000);
         carousel.setInAnimation(Home.this, R.anim.slide_in_left);
         carousel.setOutAnimation(Home.this, R.anim.slide_out_right);
     }
