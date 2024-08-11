@@ -8,16 +8,18 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    private User user = new User("Dalkun", "kntl@gmail.com");
+    private User user = new User("user", "user@example.com");
 
     private ArrayList<Asset> assets = new ArrayList<>();
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        User user = new User("", "");
+
+        ArrayList<Asset> assets = new ArrayList<>();
 
         assets.add(new Asset(
                 "Knife",
@@ -54,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
                 R.drawable.judge
         ));
 
-        Intent intent = new Intent(MainActivity.this, Home.class);
+        Intent intent = new Intent(MainActivity.this, Login.class);
         intent.putExtra("user", user);
         intent.putExtra("assets", assets);
         startActivity(intent);
