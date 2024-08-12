@@ -1,164 +1,165 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="#1C1C1C"
-    android:padding="40dp">
+    android:background="#1C1C1C">
 
-    <!-- Game Header -->
-    <LinearLayout
-        android:id="@+id/game_header"
+    <RelativeLayout
+        android:padding="40dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center_vertical">
+        android:layout_height="wrap_content">
 
+        <!-- Game Header -->
+        <LinearLayout
+            android:id="@+id/game_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:id="@+id/image_logo"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/axforassets"
+                android:layout_marginBottom="5dp"/>
+
+            <TextView
+                android:id="@+id/game_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Game"
+                android:textColor="#FFFFFF"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                android:layout_marginStart="100dp"
+                android:layout_marginBottom="5dp"
+                android:fontFamily="@font/montserrat_bold"/>
+        </LinearLayout>
+
+        <View
+            android:layout_above="@id/game_image"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#393D58"/>
+
+        <!-- Image -->
         <ImageView
-            android:id="@+id/image_logo"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:src="@drawable/axforassets"
-            android:layout_marginBottom="5dp"
-            />
+            android:id="@+id/game_image"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/sample_image"
+            android:layout_below="@id/game_header"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="16dp"
+            app:background="@drawable/rounded_image"/>
 
+        <!-- Sakura Vandal Header -->
         <TextView
-            android:id="@+id/game_text"
+            android:id="@+id/item_header"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Game"
+            android:text="Sakura Vandal"
             android:textColor="#FFFFFF"
             android:textSize="25sp"
             android:textStyle="bold"
-            android:layout_marginStart="100dp"
-            android:layout_marginBottom="5dp"
+            android:layout_below="@id/game_image"
+            android:layout_marginBottom="8dp"
             android:fontFamily="@font/montserrat_bold"/>
-    </LinearLayout>
 
-    <View
-        android:layout_above="@id/game_image"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="#393D58"
-        />
+        <View
+            android:layout_above="@id/item_description"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#393D58"/>
 
-    <!-- Image -->
-    <ImageView
-        android:id="@+id/game_image"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:scaleType="centerCrop"
-        android:src="@drawable/sample_image"
-        android:layout_below="@id/game_header"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="16dp"
-        app:background="@drawable/rounded_image"/>
+        <!-- Description -->
+        <TextView
+            android:id="@+id/item_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="The Vandal Sakura Skin is a visually stunning weapon skin that transforms the Vandal rifle into a work of art, capturing the essence of Japanese cherry blossoms. It's a perfect choice for players who want to add a touch of elegance and beauty to their gameplay."
+            android:textColor="#FFFFFF"
+            android:layout_below="@id/item_header"
+            android:justificationMode="inter_word"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="30dp"
+            android:fontFamily="@font/montserrat_regular"/>
 
-    <!-- Sakura Vandal Header -->
-    <TextView
-        android:id="@+id/item_header"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Sakura Vandal"
-        android:textColor="#FFFFFF"
-        android:textSize="25sp"
-        android:textStyle="bold"
-        android:layout_below="@id/game_image"
-        android:layout_marginBottom="8dp"
-        android:fontFamily="@font/montserrat_bold"/>
+        <View
+            android:layout_above="@id/email_text"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#393D58"/>
 
-    <View
-        android:layout_above="@id/item_description"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="#393D58"
-        />
-    <!-- Description -->
-    <TextView
-        android:id="@+id/item_description"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="The Vandal Sakura Skin is a visually stunning weapon skin that transforms the Vandal rifle into a work of art, capturing the essence of Japanese cherry blossoms. It's a perfect choice for players who want to add a touch of elegance and beauty to their gameplay."
-        android:textColor="#FFFFFF"
-        android:layout_below="@id/item_header"
-        android:justificationMode="inter_word"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="30dp"
-        android:fontFamily="@font/montserrat_regular"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Email"
+            android:layout_above="@+id/email_input"
+            android:textColor="@color/white"/>
 
-    <View
-        android:layout_above="@id/email_text"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="#393D58"/>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Email"
-        android:layout_above="@+id/email_input"
-        android:textColor="@color/white"/>
-    <!-- Email Input -->
-    <TextView
-        android:id="@+id/email_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/item_description"
-        android:text="Email"
-        android:textSize="16sp"
-        android:textColor="@color/white"
-        android:layout_marginTop="10dp"
-        android:fontFamily="@font/montserrat_regular"
-        />
+        <!-- Email Input -->
+        <TextView
+            android:id="@+id/email_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/item_description"
+            android:text="Email"
+            android:textSize="16sp"
+            android:textColor="@color/white"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/montserrat_regular"/>
 
-    <EditText
-        android:id="@+id/email_input"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/email_text"
-        android:layout_marginTop="5dp"
-        android:padding="8dp"
-        android:hint="Enter email here..."
-        android:layout_marginBottom="10dp"
-        android:fontFamily="@font/montserrat_regular"
-        android:background="@drawable/rounded_border"/>
+        <EditText
+            android:id="@+id/email_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/email_text"
+            android:layout_marginTop="5dp"
+            android:padding="8dp"
+            android:hint="Enter email here..."
+            android:layout_marginBottom="10dp"
+            android:fontFamily="@font/montserrat_regular"
+            android:background="@drawable/rounded_border"/>
 
-    <TextView
-        android:id="@+id/pay_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Payment Method"
-        android:textSize="16sp"
-        android:textColor="#FFFFFF"
-        android:layout_below="@id/email_input"
-        android:fontFamily="@font/montserrat_regular"
-        />
+        <TextView
+            android:id="@+id/pay_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Payment Method"
+            android:textSize="16sp"
+            android:textColor="#FFFFFF"
+            android:layout_below="@id/email_input"
+            android:fontFamily="@font/montserrat_regular"/>
 
-    <!-- Payment Method Spinner -->
-    <Spinner
-        android:id="@+id/payment_method_spinner"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/pay_text"
-        android:layout_marginBottom="16dp"
-        android:layout_marginTop="5dp"
-        android:padding="10dp"
-        android:background="@drawable/rounded_border"
-        android:fontFamily="@font/montserrat_regular"/>
+        <!-- Payment Method Spinner -->
+        <Spinner
+            android:id="@+id/payment_method_spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/pay_text"
+            android:layout_marginBottom="16dp"
+            android:layout_marginTop="5dp"
+            android:padding="10dp"
+            android:background="@drawable/rounded_border"
+            android:fontFamily="@font/montserrat_regular"/>
 
-    <!-- Buy Now Button -->
-    <Button
-        android:id="@+id/buy_now_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/payment_method_spinner"
-        android:text="BUY NOW"
-        app:background="@drawable/rounded_button"
-        android:backgroundTint="#FFDB1F"
-        android:textStyle="bold"
-        android:textColor="@android:color/black"
-        android:fontFamily="@font/montserrat_bold"/>
-
-</RelativeLayout>
-
-
+        <!-- Buy Now Button -->
+        <Button
+            android:id="@+id/buy_now_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/payment_method_spinner"
+            android:text="BUY NOW"
+            app:background="@drawable/rounded_button"
+            android:backgroundTint="#FFDB1F"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
+            android:fontFamily="@font/montserrat_bold"/>
+    </RelativeLayout>
+</ScrollView>

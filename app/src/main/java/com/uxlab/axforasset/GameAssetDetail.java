@@ -3,6 +3,7 @@ package com.uxlab.axforasset;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -21,6 +22,7 @@ public class GameAssetDetail extends AppCompatActivity {
     private ArrayList<Asset> assets;
     private User user;
     private ImageView game_image;
+    private ImageView gameLogo;
     private TextView item_header, item_description;
 
     private EditText emailInput;
@@ -37,6 +39,7 @@ public class GameAssetDetail extends AppCompatActivity {
         game_image = findViewById(R.id.game_image);
         item_header = findViewById(R.id.item_header);
         item_description = findViewById(R.id.item_description);
+        gameLogo = findViewById(R.id.image_logo);
 
         Bundle bundle = getIntent().getExtras();
 
@@ -76,6 +79,15 @@ public class GameAssetDetail extends AppCompatActivity {
                 showEmailDialog("Email must be filled", "Try Again");
             } else {
                 showEmailDialog("Confirmation email has been sent to your email!", "Ok");
+            }
+        });
+        gameLogo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(GameAssetDetail.this, Home.class);
+                intent.putExtra("user", user);
+                intent.putExtra("assets", assets);
+                startActivity(intent);
             }
         });
     }
