@@ -27,6 +27,7 @@ public class Profile extends AppCompatActivity {
     TextView items_nav;
     TextView profile_nav;
     TextView logout_nav;
+    LinearLayout overlay;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +45,7 @@ public class Profile extends AppCompatActivity {
         items_nav = findViewById(R.id.items_nav);
         profile_nav = findViewById(R.id.profile_nav);
         logout_nav = findViewById(R.id.logout_nav);
+        overlay = findViewById(R.id.overlay);
 
         String username = user.getName();
         welcomeText.setText("Hi, " + username + "!");
@@ -96,7 +98,7 @@ public class Profile extends AppCompatActivity {
             }
         });
 
-        findViewById(R.id.relative_layout_root).setOnClickListener(new View.OnClickListener() {
+        overlay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (dropdownMenu.getVisibility() == View.VISIBLE) {
@@ -145,8 +147,10 @@ public class Profile extends AppCompatActivity {
 
         if (dropdownMenu.getVisibility() == View.VISIBLE) {
             dropdownMenu.startAnimation(slide_up);
+            overlay.setVisibility(View.GONE);
         } else {
             dropdownMenu.startAnimation(slide_down);
+            overlay.setVisibility(View.VISIBLE);
         }
     }
 }
