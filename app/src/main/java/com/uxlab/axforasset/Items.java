@@ -24,90 +24,64 @@ public class Items extends AppCompatActivity {
     private TextView home_nav;
     private TextView profile_nav;
     private TextView logout_nav;
+    private LinearLayout overlay;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_items);
 
+        // Initialize views and fields
         assets = (ArrayList<Asset>) getIntent().getSerializableExtra("assets", ArrayList.class);
         user = getIntent().getParcelableExtra("user", User.class);
 
         home_nav = findViewById(R.id.home_nav);
         profile_nav = findViewById(R.id.profile_nav);
         logout_nav = findViewById(R.id.logout_nav);
-
-        home_nav.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(Items.this, Home.class);
-                intent.putExtra("user", user);
-                intent.putExtra("assets", assets);
-                startActivity(intent);
-            }
-        });
-
-        profile_nav.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(Items.this, Profile.class);
-                intent.putExtra("user", user);
-                intent.putExtra("assets", assets);
-                startActivity(intent);
-            }
-        });
-
-        logout_nav.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(Items.this, Login.class);
-                intent.putExtra("user", user);
-                intent.putExtra("assets", assets);
-                startActivity(intent);
-            }
-        });
-
-        RecyclerView recyclerView = findViewById(R.id.recycler_view);
-
         dropdownMenu = findViewById(R.id.dropdown_menu);
         barsIcon = findViewById(R.id.bars_icon);
+        RecyclerView recyclerView = findViewById(R.id.recycler_view);
+        overlay = findViewById(R.id.overlay);
 
-        barsIcon.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        // Set up navigation listeners
+        home_nav.setOnClickListener(view -> {
+            Intent intent = new Intent(Items.this, Home.class);
+            intent.putExtra("user", user);
+            intent.putExtra("assets", assets);
+            startActivity(intent);
+        });
+
+        profile_nav.setOnClickListener(view -> {
+            Intent intent = new Intent(Items.this, Profile.class);
+            intent.putExtra("user", user);
+            intent.putExtra("assets", assets);
+            startActivity(intent);
+        });
+
+        logout_nav.setOnClickListener(view -> {
+            Intent intent = new Intent(Items.this, Login.class);
+            intent.putExtra("user", user);
+            intent.putExtra("assets", assets);
+            startActivity(intent);
+        });
+
+        // Set up dropdown toggle listener
+        barsIcon.setOnClickListener(v -> toggleDropdownMenu());
+
+        // Set up click listener for the root layout
+        overlay.setOnTouchListener((v, event) -> {
+            if (dropdownMenu.getVisibility() == View.VISIBLE) {
                 toggleDropdownMenu();
             }
+            return false;
         });
 
-        findViewById(R.id.relative_layout_root).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (dropdownMenu.getVisibility() == View.VISIBLE) {
-                    toggleDropdownMenu();
-                }
-            }
-        });
-
-        barsIcon.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                toggleDropdownMenu();
-            }
-        });
-
-        findViewById(R.id.relative_layout_root).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (dropdownMenu.getVisibility() == View.VISIBLE) {
-                    toggleDropdownMenu();
-                }
-            }
-        });
-
+        // Initialize the dropdown menu as hidden
         toggleDropdownMenu();
 
+        // Set up the RecyclerView
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setAdapter(new MyAdapter(getApplicationContext(),assets, user));
+        recyclerView.setAdapter(new MyAdapter(getApplicationContext(), assets, user));
         recyclerView.setNestedScrollingEnabled(false);
     }
 
@@ -151,8 +125,10 @@ public class Items extends AppCompatActivity {
 
         if (dropdownMenu.getVisibility() == View.VISIBLE) {
             dropdownMenu.startAnimation(slide_up);
+            overlay.setVisibility(View.GONE);
         } else {
             dropdownMenu.startAnimation(slide_down);
+            overlay.setVisibility(View.VISIBLE);
         }
     }
 }
