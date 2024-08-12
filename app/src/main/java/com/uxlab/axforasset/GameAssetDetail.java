@@ -105,7 +105,11 @@ public class GameAssetDetail extends AppCompatActivity {
         builder.setView(dialogView);
 
         final AlertDialog dialog = builder.create();
-        dialogButton.setOnClickListener(v -> dialog.dismiss());
+        dialogButton.setOnClickListener(v -> {
+            dialog.dismiss();
+            finish();  // Menutup aktivitas saat ini untuk kembali ke halaman sebelumnya
+        });
         dialog.show();
     }
+
 }
