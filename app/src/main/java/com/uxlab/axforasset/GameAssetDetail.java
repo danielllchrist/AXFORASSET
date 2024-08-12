@@ -21,8 +21,7 @@ public class GameAssetDetail extends AppCompatActivity {
 
     private ArrayList<Asset> assets;
     private User user;
-    private ImageView game_image;
-    private ImageView gameLogo;
+    private ImageView game_image, gameLogo;
     private TextView item_header, item_description;
 
     private EditText emailInput;

@@ -36,7 +36,8 @@
                 android:textStyle="bold"
                 android:layout_marginStart="100dp"
                 android:layout_marginBottom="5dp"
-                android:fontFamily="@font/montserrat_bold"/>
+                android:fontFamily="@font/montserrat_bold" />
+
         </LinearLayout>
 
         <View
@@ -147,7 +148,7 @@
             android:layout_marginTop="5dp"
             android:padding="10dp"
             android:background="@drawable/rounded_border"
-            android:fontFamily="@font/montserrat_regular"/>
+            android:fontFamily="@font/montserrat_regular" />
 
         <!-- Buy Now Button -->
         <Button
@@ -160,6 +161,7 @@
             android:backgroundTint="#FFDB1F"
             android:textStyle="bold"
             android:textColor="@android:color/black"
-            android:fontFamily="@font/montserrat_bold"/>
+            android:fontFamily="@font/montserrat_bold" />
+
     </RelativeLayout>
 </ScrollView>
