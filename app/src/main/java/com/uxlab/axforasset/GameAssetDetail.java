@@ -75,9 +75,9 @@ public class GameAssetDetail extends AppCompatActivity {
             String paymentMethod = paymentMethodSpinner.getSelectedItem().toString();
 
             if (email.isEmpty()) {
-                showEmailDialog("Email must be filled", "Try Again");
+                showEmailDialog("Email must be filled", "Try Again", false);
             } else {
-                showEmailDialog("Confirmation email has been sent to your email!", "Ok");
+                showEmailDialog("Confirmation email has been sent to your email!", "Ok", true);
             }
         });
         gameLogo.setOnClickListener(new View.OnClickListener() {
@@ -91,7 +91,7 @@ public class GameAssetDetail extends AppCompatActivity {
         });
     }
 
-    private void showEmailDialog(String message, String buttonText) {
+    private void showEmailDialog(String message, String buttonText, boolean shouldFinish) {
         LayoutInflater inflater = LayoutInflater.from(this);
         View dialogView = inflater.inflate(R.layout.dialog_email, null);
 
@@ -107,9 +107,10 @@ public class GameAssetDetail extends AppCompatActivity {
         final AlertDialog dialog = builder.create();
         dialogButton.setOnClickListener(v -> {
             dialog.dismiss();
-            finish();  // Menutup aktivitas saat ini untuk kembali ke halaman sebelumnya
+            if (shouldFinish) {
+                finish();  // Menutup aktivitas hanya jika shouldFinish == true
+            }
         });
         dialog.show();
     }
-
 }
